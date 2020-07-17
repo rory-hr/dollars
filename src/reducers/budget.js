@@ -1,6 +1,6 @@
-const testState = [];
+import data from './data';
 
-export default (state = testState, { type, payload }) => {
+export default (state = data, { type, payload }) => {
   switch (type) {
     default:
       return state;
