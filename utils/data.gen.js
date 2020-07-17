@@ -36,6 +36,16 @@ const monCosts = [
   3000
 ];
 
+const income = [
+  'Work',
+  'Roommate'
+];
+
+const incomeAmounts = [
+  4000,
+  1500
+];
+
 const costs = [
   1.20,
   20.34,
@@ -125,6 +135,12 @@ const Structure = [
     months: [
       {
         month: String,
+        income: [
+          {
+            source: String,
+            amount: Number
+          }
+        ],
         expenses: [
           {
             item: String,
@@ -172,6 +188,9 @@ const year = (YYYY) => {
 
     // Name the month
     month.month = months[i]; 
+
+    // Add monthly income
+    month.income = new Array(2).fill(null).map((item, i) => ({ item: income[i], amount: incomeAmounts[i] }))
 
     // Add monthly expenses
     month.expenses = new Array(4).fill(null).map((item, i) =>({ item: monItems[i], cost: monCosts[i] })); 
