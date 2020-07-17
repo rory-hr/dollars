@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 
 const styles = StyleSheet.create({
@@ -12,9 +13,12 @@ const styles = StyleSheet.create({
 });
 
 export default () => {
+
+  const budget = useSelector(state => state.budget);
+
   return (
     <View style={styles.container}>
-      <Text>Dash</Text>
+      <Text>{budget[0].year}</Text>
     </View>
   );
 };
