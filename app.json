@@ -1,0 +1,12 @@
+{
+  "name": "dollars",
+  "displayName": "dollars",
+  "expo": {
+    "name": "dollars",
+    "slug": "dollars",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
