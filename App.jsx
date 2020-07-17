@@ -1,5 +1,10 @@
 import React from 'react';
 
+// Redux
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import allReducers from './src/reducers';
+
 // Screens
 import Profile from './src/screens/drawer/Profile';
 import Settings from './src/screens/drawer/Settings';
@@ -19,6 +24,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const TopTabs = createMaterialTopTabNavigator();
+
+const store = createStore(allReducers);
 
 const App = () => {
 
@@ -55,11 +62,13 @@ const App = () => {
   );
 
   return (
-    <AppearanceProvider>
-      <NavigationContainer theme={MyTheme}>
-        {createDrawer()}
-      </NavigationContainer>
-    </AppearanceProvider>
+    <Provider store={store}>
+      <AppearanceProvider>
+        <NavigationContainer theme={MyTheme}>
+          {createDrawer()}
+        </NavigationContainer>
+      </AppearanceProvider>
+    </Provider>
   );
 }
 
