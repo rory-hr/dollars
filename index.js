@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler'; // According to docs, must be at VERY top of the App => https://reactnavigation.org/docs/getting-started
+
 import { registerRootComponent } from 'expo';
 
 import App from './App';
