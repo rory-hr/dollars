@@ -8,9 +8,9 @@ import allReducers from './src/reducers';
 // Screens
 import Profile from './src/screens/drawer/Profile';
 import Settings from './src/screens/drawer/Settings';
-import Calendar from './src/screens/toptabs/Calendar';
-import Dash from './src/screens/toptabs/Dash';
-import Table from './src/screens/toptabs/Table';
+import Calendar from './src/screens/toptabs/Calendar/Calendar';
+import Dash from './src/screens/toptabs/Dash/Dash';
+import Table from './src/screens/toptabs/Table/Table';
 
 // Theme
 import { Appearance, useColorScheme, AppearanceProvider } from 'react-native-appearance';
@@ -33,14 +33,23 @@ const App = () => {
     colors: {
       primary: '#fafafa',
       background: '#424242',
-      card: '#212121',
-      text: '#eeeeee',
-      border: '#5c6bc0'
+      card: '#424242',
+      text: '#fafafa',
+      border: '#5c6bc0',
+
+      dark9: '#212121',
+      dark8: '#424242',
+      dark7: '#616161',
+      light1: '#fafafa',
+      light2: '#f5f5f5',
+      light3: '#eeeeee',
+      success: '#4caf50',
+      warning: '#ffca28',
     }
   };
 
   const createTopTabs = () => (
-    <TopTabs.Navigator initialRouteName="Dash">
+    <TopTabs.Navigator initialRouteName="Dash" style={{paddingTop: 30}}>
       <TopTabs.Screen name="Table" component={Table}/>
       <TopTabs.Screen name="Dash" component={Dash}/>
       <TopTabs.Screen name="Calendar" component={Calendar}/>
