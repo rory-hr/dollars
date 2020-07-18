@@ -5,29 +5,20 @@ import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { useTheme } from '@react-navigation/native';
 import * as utils from '../../../utils/calculations';
-import { clearUpdateCacheExperimentalAsync } from 'expo-updates';
 
 
 export default () => {
 
-
   // Data
   const now = moment();
   const data = useSelector(state => state.data);
-  // console.dir(data);
   const currentYear = data[data.length - 1];
   const currentMonth = currentYear.months[parseInt(now.format('M')) - 1];
   const netAllowance = utils.netAllowance(currentMonth, parseInt(moment().format('D')));
   const today = moment().format('MMMM D');
   const monthlyAllowance = utils.dailyAllowance(currentMonth);
   const todaysDate = parseInt(moment().format('D'));
-  // console.log(currentMonth.days);
-  // const todaysExpenses = utils.sumExpenses(currentMonth.days[todaysDate - 1]);
-  const todaysExpenses = 33.13;
-
-  // console.dir(currentYear);
-  // const todaysExpenses = utils.sumExpenses();
-
+  const todaysExpenses = utils.sumExpenses(currentMonth.days[todaysDate - 1]);
     
   // Styles 
   const { colors } = useTheme();
