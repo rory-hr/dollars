@@ -23,8 +23,7 @@ export default () => {
     }
   };
 
-  // Data
-  const budget = useSelector(state => state.budget);
+  
 
   return (
     <View style={styles.container}>
