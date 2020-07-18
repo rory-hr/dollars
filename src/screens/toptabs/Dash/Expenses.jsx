@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
 import { useTheme } from '@react-navigation/native';
 
 
@@ -15,7 +14,7 @@ export default () => {
       backgroundColor: colors.light3,
       alignItems: 'center',
       justifyContent: 'center',
-      width: 300,
+      width: '90%',
       borderRadius: 3,
     }
   };
