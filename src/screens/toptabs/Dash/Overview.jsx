@@ -7,18 +7,7 @@ import { useTheme } from '@react-navigation/native';
 import * as utils from '../../../utils/calculations';
 
 
-export default () => {
-
-  // Data
-  const now = moment();
-  const data = useSelector(state => state.data);
-  const currentYear = data[data.length - 1];
-  const currentMonth = currentYear.months[parseInt(now.format('M')) - 1];
-  const netAllowance = utils.netAllowance(currentMonth, parseInt(moment().format('D')));
-  const today = moment().format('MMMM D');
-  const monthlyAllowance = utils.dailyAllowance(currentMonth);
-  const todaysDate = parseInt(moment().format('D'));
-  const todaysExpenses = utils.sumExpenses(currentMonth.days[todaysDate - 1]);
+export default ({ today, netAllowance, monthlyAllowance, todaysExpenses }) => {
     
   // Styles 
   const { colors } = useTheme();
@@ -38,30 +27,32 @@ export default () => {
     netAllowance: {
       color: netAllowance >= 0 ? colors.success : colors.error,
     },
-    today: {
-      
+    text: {
+      fontSize: 18,
     },
     dailyOverview: {
       flexDirection: 'row',
       justifyContent: 'space-around',
-      width: '100%'
+      width: '100%',
+      marginTop: 8
     },
     overviewColumn: {
-      textAlign: 'center'
+      textAlign: 'center',
+      alignItems: 'center'
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.today}>{today}</Text>
+      <Text style={styles.text}>{today}</Text>
       <Text h1 style={styles.netAllowance}>{netAllowance}</Text>
       <View style={styles.dailyOverview}>
         <View style={styles.overviewColumn}>
-          <Text>Daily Allowance:</Text>
+          <Text style={styles.text}>Daily Allowance:</Text>
           <Text h3>{monthlyAllowance}</Text>
         </View>
         <View style={styles.overviewColumn}>
-          <Text>Expenses Today:</Text>
+          <Text style={styles.text}>Expenses Today:</Text>
           <Text h3>{todaysExpenses}</Text>
         </View>
       </View>
