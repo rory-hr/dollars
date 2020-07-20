@@ -17,6 +17,6 @@ export const totalExpenses = month => month.days.reduce(totalExpensesReducer, 0)
 // Calculates the net allowance until a given day in a month
 export const netAllowance = (month, day) => {
   const allowance = dailyAllowance(month);
-  return month.days.splice(0, day).reduce((a, b) => a + allowance - sumExpenses(b), 0);
+  return month.days.map(day => day).splice(0, day).reduce((a, b) => a + allowance - sumExpenses(b), 0);
 };
 
