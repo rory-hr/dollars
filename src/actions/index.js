@@ -1,0 +1,1 @@
+const addExpense = (moment, expense) => ({ type: 'ADD_EXPENSE', payload: { moment, ...expense } });
