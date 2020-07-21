@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@react-navigation/native';
 import moment from 'moment';
 import * as utils from '../../../utils/calculations';
+import { Icon } from 'react-native-elements';
 
 
 // Components
 import Overview from './Overview';
 import Table from './Table';
+import ExpenseDialog from './ExpenseDialog';
 
 export default () => {
+
+  // Add Expense Dialog Condition
+  const [add, setAdd] = useState(false);
 
   // Data
   const now = moment();
@@ -34,13 +39,29 @@ export default () => {
       backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'flex-start',
+    },
+    icon: {
+      backgroundColor: colors.dark7,
+      borderRadius: 50,
+      width: 70,
+      height: 70,
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: 50,
     }
+  };
+
+  const handleAdd = (e) => {
+    console.log('PRESSED')
+    setAdd(!add)
   };
 
   return (
     <View style={styles.container}>
       <Overview netAllowance={netAllowance} today={today} monthlyAllowance={monthlyAllowance} todaysExpenses={todaysExpenses}/>
       <Table currentDay={currentDay}/>
+      <Icon color={colors.light1} containerStyle={styles.icon} name="add" onPress={handleAdd} size={40}/>
+      {add ? <ExpenseDialog isVisible={true}/> : null}
     </View>
   );
 };
