@@ -66,14 +66,14 @@ export default ({ currentDay }) => {
   const rows = currentDay.expenses.map((expense, i) => {
 
     const badges = expense.tags.map((tag, i) => (
-      <View style={styles.badge}>
+      <View key={`badge.${i}`} style={styles.badge}>
         <Text style={styles.badgeText}>{tag}</Text>
       </View>
     ));
 
     return (
       <View style={styles.rowContainer}>
-        <View key={i} style={styles.row}>
+        <View key={`row.${i}`} style={styles.row}>
           <Text style={styles.item}>{expense.item}</Text>
           <Text style={styles.cost}>{expense.cost}</Text>
         </View>
