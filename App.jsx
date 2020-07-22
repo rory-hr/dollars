@@ -46,7 +46,7 @@ const App = () => {
       success: '#4caf50',
       warning: '#ffca28',
       error: '#d32f2f',
-      blue: '#3f51b5'
+      blue: '#42a5f5'
     }
   };
 
