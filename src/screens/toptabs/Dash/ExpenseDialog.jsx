@@ -12,17 +12,16 @@ export default ({ isVisible }) => {
     },
     label: {
 
+    },
+    input: {
+      width: '90%'
     }
   };
 
 
   return (
-    <Overlay isVisible={isVisible} style={styles.backDrop}>
-      <View>
-        <Text style={styles.title}>Expense Info:</Text>
-        <Input placeHolder="Breakfast? A hammer?"/>
-        <Input placeHolder="34.89"/>
-      </View>
-    </Overlay>
+    <div>
+      
+    </div>
   );
 };
