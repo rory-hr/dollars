@@ -1,1 +1,1 @@
-const addExpense = (moment, expense) => ({ type: 'ADD_EXPENSE', payload: { moment, ...expense } });
+export const addExpense = (moment, expense) => ({ type: 'ADD_EXPENSE', payload: { moment, ...expense } });
