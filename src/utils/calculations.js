@@ -9,7 +9,7 @@ export const sumExpenses = monthOrDay => monthOrDay.expenses.reduce((a, b) => a.
 export const dailyAllowance = month => Math.round((sumIncome(month) - sumExpenses(month)) / month.days.length * 100) / 100;
 
 // Utility
-export const totalExpensesReducer = (a, b) => (a.expenses === undefined ? a : sumExpenses(a)) + sumExpenses(b);
+const totalExpensesReducer = (a, b) => (a.expenses === undefined ? a : sumExpenses(a)) + sumExpenses(b);
 
 // Calculates the total expenses accrued in a given month
 export const totalExpenses = month => month.days.reduce(totalExpensesReducer, 0);
