@@ -10,7 +10,6 @@ import { Text, Input, Overlay, Icon, Button } from 'react-native-elements';
 // Components
 import Overview from './Overview';
 import Table from './Table';
-import TagInput from 'react-native-tag-input';
 import { addExpense } from '../../../actions';
 
 export default () => {
@@ -113,7 +112,7 @@ export default () => {
 
   // Event Handlers
   const handleAdd = (e) => {
-    setShow(true)
+    setShow(true);
   };
 
   const closeDialog = () => {
